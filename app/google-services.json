@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "562878034932",
+    "project_id": "kotlinuberclone-f09d8",
+    "storage_bucket": "kotlinuberclone-f09d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562878034932:android:0a36657c47a87ef723ffa1",
+        "android_client_info": {
+          "package_name": "fr.nelfdesign.kotlinuberclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562878034932-8ccsuvc25imantpn1nl3nrmst2fo8r33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD79_IWNt4QiJ-QedKcS9prKM-R_d1voss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562878034932-8ccsuvc25imantpn1nl3nrmst2fo8r33.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KotlinUberClone</string>
+    <string name="sign_in_with_phone">Sign In with phone</string>
+    <string name="sign_in_with_google">Sign In with Google</string>
+</resources>
