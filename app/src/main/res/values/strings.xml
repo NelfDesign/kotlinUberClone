@@ -2,4 +2,9 @@
     <string name="app_name">KotlinUberClone</string>
     <string name="sign_in_with_phone">Sign In with phone</string>
     <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="continue_text">Continue</string>
+    <string name="register">Let\'s start with creating your account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
 </resources>
