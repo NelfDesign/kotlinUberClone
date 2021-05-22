@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "562878034932",
+    "firebase_url": "https://kotlinuberclone-f09d8-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "kotlinuberclone-f09d8",
     "storage_bucket": "kotlinuberclone-f09d8.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "562878034932-tps76qdit88o2eigkv109err647rr47c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.nelfdesign.kotlinuberclone",
+            "certificate_hash": "660414609b997c82da00928b82a694debf7d99ae"
+          }
+        },
         {
           "client_id": "562878034932-8ccsuvc25imantpn1nl3nrmst2fo8r33.apps.googleusercontent.com",
           "client_type": 3
