@@ -3,6 +3,7 @@ package fr.nelfdesign.kotlinuberclone
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -76,7 +77,6 @@ class SplashScreenActivity : AppCompatActivity() {
             val user = myFirebaseAuth.currentUser
 
             if (user != null){
-                Log.w("splash", "user ok")
                 checkUserFromFirebase()
             } else{
                 showLoginLayout()
@@ -85,13 +85,14 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun checkUserFromFirebase() {
-        Log.d("splash", "user= " + FirebaseAuth.getInstance().currentUser!!.uid)
         driverInfoRef.child(FirebaseAuth.getInstance().currentUser!!.uid)
                 .addListenerForSingleValueEvent(object:ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         Log.w("splash", "ok layout")
                         if (snapshot.exists()){
-                            Toast.makeText(this@SplashScreenActivity, "User already register!", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(this@SplashScreenActivity, "User already register!", Toast.LENGTH_SHORT).show()
+                            val model = snapshot.getValue(DriverInfoModel::class.java)
+                            goToHomeActivity(model)
                         }else{
                             Log.w("splash", "ok layout")
                             showRegisterLayout()
@@ -103,6 +104,12 @@ class SplashScreenActivity : AppCompatActivity() {
                     }
 
                 })
+    }
+
+    private fun goToHomeActivity(model: DriverInfoModel?) {
+        Common.currentUser = model
+        startActivity(Intent(this, DriverHomeActivity::class.java))
+        finish()
     }
 
     private fun showRegisterLayout() {
@@ -152,6 +159,8 @@ class SplashScreenActivity : AppCompatActivity() {
                         Toast.makeText(this@SplashScreenActivity, "Register Successfully", Toast.LENGTH_SHORT).show()
                         dialog.dismiss()
                         progress_bar.visibility = View.GONE
+
+                        goToHomeActivity(driver)
                     }
             }
         }
