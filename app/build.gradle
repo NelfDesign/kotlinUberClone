@@ -64,10 +64,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.firebaseui:firebase-ui-auth:7.1.0'
     implementation 'com.google.firebase:firebase-database'
+    //GeoFire
+    implementation 'com.firebase:geofire-android:3.0.0'
 
     //Dexter
     implementation 'com.karumi:dexter:6.1.2'
 
     //Location
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+
 }
