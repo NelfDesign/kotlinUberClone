@@ -132,36 +132,40 @@ class SplashScreenActivity : AppCompatActivity() {
         dialog.show()
         //event
         btn_continue.setOnClickListener {
-            if (TextUtils.isDigitsOnly(edt_first_name.text.toString())){
-                Toast.makeText(this@SplashScreenActivity, "Please enter first name", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }else if (TextUtils.isDigitsOnly(edt_last_name.text.toString())){
-                Toast.makeText(this@SplashScreenActivity, "Please enter last name", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }else if (TextUtils.isDigitsOnly(edt_phone_number.text.toString())){
-                Toast.makeText(this@SplashScreenActivity, "Please enter phone number", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }else{
-                val driver = DriverInfoModel()
-                driver.firstName = edt_first_name.text.toString()
-                driver.lastName = edt_last_name.text.toString()
-                driver.phoneNumber = edt_phone_number.text.toString()
-                driver.rating = 0.0
-                //add to database
-                driverInfoRef.child(FirebaseAuth.getInstance().currentUser!!.uid)
-                    .setValue(driver)
-                    .addOnFailureListener{
-                            e -> Toast.makeText(this@SplashScreenActivity, e.message, Toast.LENGTH_SHORT).show()
+            when {
+                TextUtils.isDigitsOnly(edt_first_name.text.toString()) -> {
+                    Toast.makeText(this@SplashScreenActivity, "Please enter first name", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                TextUtils.isDigitsOnly(edt_last_name.text.toString()) -> {
+                    Toast.makeText(this@SplashScreenActivity, "Please enter last name", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                TextUtils.isDigitsOnly(edt_phone_number.text.toString()) -> {
+                    Toast.makeText(this@SplashScreenActivity, "Please enter phone number", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                else -> {
+                    val driver = DriverInfoModel()
+                    driver.firstName = edt_first_name.text.toString()
+                    driver.lastName = edt_last_name.text.toString()
+                    driver.phoneNumber = edt_phone_number.text.toString()
+                    driver.rating = 0.0
+                    //add to database
+                    driverInfoRef.child(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .setValue(driver)
+                        .addOnFailureListener{ e -> Toast.makeText(this@SplashScreenActivity, e.message, Toast.LENGTH_SHORT).show()
                             dialog.dismiss()
-                           progress_bar.visibility = View.GONE
-                    }
-                    .addOnSuccessListener {
-                        Toast.makeText(this@SplashScreenActivity, "Register Successfully", Toast.LENGTH_SHORT).show()
-                        dialog.dismiss()
-                        progress_bar.visibility = View.GONE
+                            progress_bar.visibility = View.GONE
+                        }
+                        .addOnSuccessListener {
+                            Toast.makeText(this@SplashScreenActivity, "Register Successfully", Toast.LENGTH_SHORT).show()
+                            dialog.dismiss()
+                            progress_bar.visibility = View.GONE
 
-                        goToHomeActivity(driver)
-                    }
+                            goToHomeActivity(driver)
+                        }
+                }
             }
         }
     }
