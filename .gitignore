@@ -16,3 +16,4 @@ local.properties
 # API Keys
 /gradle.properties
 /app/google-services.json
+/app/src/debug/res/values/google_maps_api.xml
